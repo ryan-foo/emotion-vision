@@ -6,6 +6,7 @@ import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -21,6 +22,9 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.microsoft.projectoxford.face.FaceServiceClient;
+import com.microsoft.projectoxford.face.FaceServiceRestClient;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -42,6 +46,16 @@ public class MainActivity extends AppCompatActivity {
 
     String mCurrentPhotoPath;
     private static final String IMAGE_DIRECTORY_NAME = "VLEMONN";
+
+    // Add your Face endpoint to your environment variables.
+    private final String apiEndpoint = "a64b46fb7b2745a7bd3a71e43624c1fa";
+    // Add your Face subscription key to your environment variables.
+    private final String subscriptionKey = "a64b46fb7b2745a7bd3a71e43624c1fa";
+
+    private final FaceServiceClient faceServiceClient = new FaceServiceRestClient("https://westus2.api.cognitive.microsoft.com/", "a64b46fb7b2745a7bd3a71e43624c1fa");
+
+    private final int PICK_IMAGE = 1;
+    private ProgressDialog detectionProgressDialog;
 
 
 
