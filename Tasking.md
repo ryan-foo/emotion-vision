@@ -4,6 +4,22 @@
 
 ### Research Hardware components required for solution
 
+Which hardware components do we need?
+- Raspberry Pi Zero W (Preferably)
+	- Possible to have it purely battery operated?
+	- It is bluetooth, wifi
+- Camera Module (standard version)
+- Camera Module ribbon for the Zero
+
+- Desktop
+- Keyboard
+- Mouse
+
+- Raspberry Pi 4 Kit
+- Raspberry Pi Camera Module
+- Raspberry Pi bluetooth module
+
+
 ### Source Hardware components required for solution
 
 ### Lias with MLH to pick up and get the required components
