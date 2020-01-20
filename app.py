@@ -27,15 +27,26 @@ def check_results():
     body = request.get_json()
     desired_emotion = body['emotion']
 
-    image_bytes = base64.b64decode(body['image_base64'].split(',')[1])
-    image = io.BytesIO(image_bytes)
+    #PiCamera class
+    faces = client.face.detect_with_stream(open('filename', 'r'),
+        return_face_attributes=['emotion'])
 
-    # TODO: Enter code to detect emotion
-    faces = client.face.detect_with_stream(image, 
-    return_face_attributes=['emotion'])
+    # image_bytes = base64.b64decode(body['image_base64'].split(',')[1])
+    # image = io.BytesIO(image_bytes)
+
+    # # TODO: Enter code to detect emotion
+    # faces = client.face.detect_with_stream(image, 
+    # return_face_attributes=['emotion'])
 
     if len(faces) == 1:
         detected_emotion = best_emotion(faces[0].face_attributes.emotion)
+        #first face
+        #has face_attributes
+        #this will give us emotion
+
+        #{anger: 0.5, contempt: 0.2}
+        #best_emotion(anger)
+        #does not return value
 
         if detected_emotion == body['emotion']:
             return jsonify({
