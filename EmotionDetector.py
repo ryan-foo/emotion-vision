@@ -81,10 +81,12 @@ print("\033[1m"+"\nMorsePi"+"\033[0m")
 
 
 def take_picture_with_camera():
-    paralleldots.set_api_key("Your Own API Key from Parallel Dots")
+    paralleldots.set_api_key("br13ubwK9UvtgVahL09oDrw2KxLtRGKygrgonAmLqjY")
     paralleldots.get_api_key()
     camera.start_preview()
-    sleep(5)
+    #camera.rotation(180)
+    sleep(0.5)
+    
     camera.capture('/home/pi/Desktop/image.jpg')
     camera.stop_preview()
     path = "/home/pi/Desktop/image.jpg"
@@ -136,6 +138,9 @@ def take_picture_with_camera():
         GPIO.output(buzzer, GPIO.HIGH)
         sleep(1)
         GPIO.output(buzzer,GPIO.LOW)
+        # Play NoFace
+        pygame.mixer.music.load("/home/pi/Sounds/NoFace.mp3")
+        pygame.mixer.music.play() 
         CODE("No Face")
         #os.execv('/home/pi/button.py', sys.argv)
     

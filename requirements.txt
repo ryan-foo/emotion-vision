@@ -1,3 +1,4 @@
-flask
-python-dotenv
-azure-cognitiveservices-vision-face
+gpiozero
+paralleldots
+picamera
+pygame
